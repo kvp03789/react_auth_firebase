@@ -9,6 +9,7 @@ import Flag from '../images/flag.svg'
 import StarBanner from '../images/star-banner.svg'
 import Dots from '../images/dots-vertical.svg'
 import ProjectOptionsMenu from './ProjectOptionsMenu'
+import ProjectListTitle from './ProjectListTitle'
 
 const Nav = (props) => {
   const inputRef = useRef('')
@@ -19,7 +20,6 @@ const Nav = (props) => {
   const handleSubmit = () => {
     props.addProject(inputRef.current.value)
     setIsInputDisplayed(false)
-    console.log()
   }
 
   const handleOptionsClick = (e) => {
@@ -66,14 +66,15 @@ const Nav = (props) => {
             {props.projectList.map(proj => (
               
                 <Link to={`${proj.projectName}`}>
-                  <div className="project-list-title item" key={proj.projectName}>
+                  {/* <div className="project-list-title item" key={proj.projectName}>
                     <img src={ProjectMenuIcon} className="project-menu-icon small-icon"/>
                     <h5>{proj.projectName}</h5>
                     <div className="dots-container" onClick={(e) => handleOptionsClick(e)}>
                       <img src={Dots} className="small-icon"/>
                       {isOptionsDisplayed && <ProjectOptionsMenu proj={proj} onEdit={props.onEdit} onDelete={props.onDelete}/>}
                     </div>
-                  </div>
+                  </div> */}
+                    <ProjectListTitle proj={proj} editProject={props.onEdit} onEdit={props.onEdit} onDelete={props.onDelete}/>
                   
                 </Link>
               

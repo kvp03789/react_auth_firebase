@@ -29,18 +29,21 @@ const App = () => {
 
   const handleDeleteProject = (projectName) => {
     const newProjectList = projectList.filter(proj => {
-      return proj.name === projectName
+      return proj.projectName !== projectName
     })
-
-    setProjectList(newProjectList)
+    console.log(newProjectList)
+    setProjectList([...newProjectList])
+    
   }
 
+  //THIS GETS PASSED TO PROJECT OPTIONS MENU
   const handleEditProject = (oldProject, newName) => {
     const newProjectList = projectList;
+    console.log(newName, newProjectList, 'edited')
     let i = projectList.indexOf(oldProject)
-    newProjectList[i].title = newName;
+    newProjectList[i].projectName = newName;
     setProjectList([...newProjectList])
-    console.log(newName, 'edited')
+    
   }
 
   const updateProj = (proj, newTask) => {
@@ -51,7 +54,7 @@ const App = () => {
     // projectList[i].taskList = [...projectList[i].taskList, newTask];
     // setProjectList([...projectList])
   }
-
+  ////NOT CURRENTLY IN USE///
   const updateTask = (proj, newTask, newTaskIndex) => {
     setProjectList(projectList.map(project => {
       if(project.projectName === proj.projectName){
@@ -62,9 +65,10 @@ const App = () => {
         })
       } else return project
     }))
-    
-  }
+  //////////////////// ///////
 
+  }
+  //MAIN EDIT TASK FUNCTION
   const editTaskList = (proj, newTaskList) => {
     let index = projectList.indexOf(proj)
     const newProjectList = projectList;

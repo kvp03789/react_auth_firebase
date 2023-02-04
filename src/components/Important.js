@@ -9,7 +9,7 @@ const Important = (props) => {
           props.projectList.map(proj => (
             proj.taskList.map(task => (
               task.important &&
-                <div>
+                <div key={task.title}>
                   <TaskListItem task={task}/>  
                 </div>
             ))

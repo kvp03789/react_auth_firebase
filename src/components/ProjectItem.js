@@ -8,10 +8,9 @@ const ProjectItem = (props) => {
 
  
 
-  // useEffect(() => {
-  //   setProjectTaskList([...props.project.taskList])
-  //   console.log(`the ${props.project.projectName} project's task list is now:`, projectTaskList)
-  // }, [projectTaskList])
+  useEffect(() => {
+    props.editTaskList(props.project, projectTaskList)
+  }, [projectTaskList])
 
   const handleAdd = (newTask, proj) => {
     setIsFormDisplayed(false)

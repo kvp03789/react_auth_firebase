@@ -1,13 +1,13 @@
 import React from 'react'
 
-const ProjectOptionsMeny = (props) => {
+const ProjectOptionsMenu = (props) => {
 
   const handleEdit = () => {
-    props.onEdit(props.proj)
+    props.onEdit()
   }
 
   const handleDelete = () => {
-    props.onDelete(props.proj)
+    props.onDelete(props.proj.projectName)
   }
 
   return (
@@ -18,4 +18,4 @@ const ProjectOptionsMeny = (props) => {
   )
 }
 
-export default ProjectOptionsMeny
+export default ProjectOptionsMenu
